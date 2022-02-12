@@ -1,0 +1,6 @@
+.NoticeBoard {
+  display: flex;
+}
+.NoticeBoardRight {
+  flex: 9;
+}

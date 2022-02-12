@@ -1,0 +1,80 @@
+.notice {
+  width: 100%;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+  box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+  margin: 30px 0;
+}
+
+.noticeWrapper {
+  padding: 10px;
+}
+
+.noticeTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.noticeBadge {
+  margin: 0 5px;
+  /* background-color: cornflowerblue !important; */
+}
+
+.noticeTopLeft {
+  display: flex;
+  align-items: center;
+}
+.noticeProfileImg {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.noticeUsername {
+  font-size: 15px;
+  font-weight: 500;
+  margin: 0 10px;
+}
+
+.noticeDate {
+  font-size: 12px;
+}
+
+.noticeCenter {
+  margin: 20px 0;
+}
+
+.noticeImg {
+  margin-top: 20px;
+  width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+}
+
+.noticeBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.noticeBottomLeft {
+  display: flex;
+  align-items: center;
+}
+
+.likeIcon {
+  width: 24px;
+  height: 24px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.noticeLikeCounter {
+  font-size: 15px;
+}
+
+.noticeCommentText {
+  cursor: pointer;
+  border-bottom: 1px dashed gray;
+  font-size: 15px;
+}
