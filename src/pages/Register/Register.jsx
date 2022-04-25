@@ -37,7 +37,7 @@ const Register = () => {
     <div className="register">
       <div className="registerWrapper">
         <div className="registerLeft">
-          <img className="registerLogo" src={logo} />
+          <img className="registerLogo" src={logo} alt="logo" />
           <span className="registerDesc">Connect with your campus.</span>
         </div>
         <div className="registerRight">

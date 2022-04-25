@@ -3,7 +3,7 @@ import { Users } from "../../dummyData";
 import Online from "../online/Online";
 import { useEffect, useState, useContext } from "react";
 import Avatar from "../../images/noAvatar.png";
-import axios from "axios";
+import axios from "../../axios";
 import giftImg from "../../images/gift.png";
 import adImg from "../../images/ad.png";
 import { Link } from "react-router-dom";
@@ -72,12 +72,12 @@ const RightSidebar = ({ page, user }) => {
           </span>
         </div>
         <img className="rightsidebarAd" src={adImg} alt="" />
-        <h4 className="rightsidebarTitle">Online friends</h4>
+        {/* <h4 className="rightsidebarTitle">Online friends</h4>
         <ul className="rightsidebarFriendList">
           {Users.map((user) => (
             <Online key={user.id} user={user} />
           ))}
-        </ul>
+        </ul> */}
       </>
     );
   };

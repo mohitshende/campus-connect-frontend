@@ -1,17 +1,11 @@
-import {
-  PermMedia,
-  Label,
-  Room,
-  EmojiEmotions,
-  Cancel,
-} from "@material-ui/icons";
+import { PermMedia, Cancel } from "@material-ui/icons";
 import { useContext, useRef, useState } from "react";
-import "./Share.css";
+import "./DeptShare.css";
 import { AuthContext } from "../../context/AuthContext";
 import axios from "../../axios";
 import Avatar from "../../images/noAvatar.png";
 
-const Share = ({ fetchPosts }) => {
+const DeptShare = ({ fetchPosts }) => {
   const { user } = useContext(AuthContext);
   const desc = useRef();
   const [file, setFile] = useState(null);
@@ -21,6 +15,7 @@ const Share = ({ fetchPosts }) => {
     const newPost = {
       userId: user._id,
       desc: desc.current.value,
+      department: user.department,
     };
 
     //TODO: Firebase image upload functionality
@@ -34,7 +29,7 @@ const Share = ({ fetchPosts }) => {
     // }
 
     try {
-      await axios.post("/posts", newPost);
+      await axios.post("/deptPosts", newPost);
       fetchPosts();
       desc.current.value = "";
       setFile(null);
@@ -53,7 +48,7 @@ const Share = ({ fetchPosts }) => {
             alt=""
           />
           <input
-            placeholder={`What's in your mind ${user.username}?`}
+            placeholder={`Share useful information for your department`}
             className="shareInput"
             ref={desc}
           />
@@ -82,18 +77,6 @@ const Share = ({ fetchPosts }) => {
                 onChange={(e) => setFile(e.target.files[0])}
               />
             </label>
-            <div className="shareOption">
-              <Label htmlColor="blue" className="shareIcon" />
-              <span className="shareOptionText">Tag</span>
-            </div>
-            <div className="shareOption">
-              <Room htmlColor="green" className="shareIcon" />
-              <span className="shareOptionText">Location</span>
-            </div>
-            <div className="shareOption">
-              <EmojiEmotions htmlColor="goldenrod" className="shareIcon" />
-              <span className="shareOptionText">Feeling</span>
-            </div>
           </div>
           <button className="shareButton" type="submit">
             Share
@@ -104,4 +87,4 @@ const Share = ({ fetchPosts }) => {
   );
 };
 
-export default Share;
+export default DeptShare;

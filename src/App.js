@@ -33,7 +33,7 @@ function App() {
           {user ? <NoticeBoard /> : <Redirect to="/register" />}
         </Route>
         <Route path="/deptfeed">
-          {user ? <DepartmentFeed /> : <Redirect to="/register" />}
+          {user?.department ? <DepartmentFeed /> : <Redirect to="/register" />}
         </Route>
       </Switch>
     </Router>

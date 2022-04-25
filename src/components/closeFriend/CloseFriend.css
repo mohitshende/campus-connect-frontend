@@ -2,6 +2,11 @@
   display: flex;
   align-items: center;
   margin-bottom: 15px;
+  padding: 10px;
+}
+.leftsidebarFriend:hover {
+  background-color: rgba(128, 128, 128, 0.3);
+  border-radius: 8px;
 }
 .leftsidebarFriendImg {
   width: 32px;

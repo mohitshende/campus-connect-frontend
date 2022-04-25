@@ -4,7 +4,7 @@ import LeftSidebar from "../../components/leftsidebar/LeftSidebar";
 import Feed from "../../components/feed/Feed";
 import RightSidebar from "../../components/rightsidebar/RightSidebar";
 import { useEffect, useState } from "react";
-import axios from "axios";
+import axios from "../../axios";
 import { useParams } from "react-router";
 import defaultCover from "../../images/noCover.png";
 import Avatar from "../../images/noAvatar.png";

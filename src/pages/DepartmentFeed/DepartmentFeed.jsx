@@ -1,10 +1,20 @@
 import "./DepartmentFeed.css";
 import Topbar from "../../components/topbar/Topbar";
 import LeftSidebar from "../../components/leftsidebar/LeftSidebar";
-import Feed from "../../components/feed/Feed";
+import DeptFeed from "../../components/deptFeed/DeptFeed";
 import RightSidebar from "../../components/rightsidebar/RightSidebar";
+import DeptCover from "../../images/dept.jpg";
+import { AuthContext } from "../../context/AuthContext";
+import { useContext } from "react";
 
 const DepartmentFeed = () => {
+  const { user } = useContext(AuthContext);
+  const deptNames = {
+    SOCA: "School of Computer Applications",
+    SOE: "School of Engineering",
+    SOD: "School of Design",
+    SOMS: "School of Management Studies",
+  };
   return (
     <>
       <Topbar />
@@ -15,21 +25,21 @@ const DepartmentFeed = () => {
             <div className="DepartmentFeedCover">
               <img
                 className="DepartmentFeedCoverImg"
-                src="assets/dept.jpg"
-                alt=""
+                src={DeptCover}
+                alt="cover"
               />
               <h1 className="DepartmentFeedTitle">
-                School of Computer Applications
+                {deptNames[user.department]}
               </h1>
             </div>
             <div className="DepartmentFeedInfo">
               <h4 className="DepartmentFeedInfoName">
-                This is the department feed of School of Computer Applications.
+                This is the news feed of {deptNames[user.department]}.
               </h4>
             </div>
           </div>
           <div className="DepartmentFeedRightBottom">
-            <Feed />
+            <DeptFeed />
             <RightSidebar page="DepartmentFeed" />
           </div>
         </div>

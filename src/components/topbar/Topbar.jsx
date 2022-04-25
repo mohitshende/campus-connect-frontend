@@ -83,10 +83,6 @@ const Topbar = () => {
         )}
       </div>
       <div className="topbarRight">
-        <div className="topbarLinks">
-          <span className="topbarLink">Homepage</span>
-          <span className="topbarLink">Timeline</span>
-        </div>
         <div className="topbarIcons">
           <div className="topbarIconItem">
             <Person />

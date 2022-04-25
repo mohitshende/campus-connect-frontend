@@ -1,11 +1,11 @@
 import axios from "../../axios";
 import { useContext, useEffect, useState } from "react";
-import Post from "../post/Post";
-import Share from "../share/Share";
-import "./Feed.css";
+import DeptPost from "../deptPost/DeptPost";
+import "./DeptFeed.css";
 import { AuthContext } from "../../context/AuthContext";
+import DeptShare from "../deptShare/DeptShare";
 
-const Feed = ({ username }) => {
+const DeptFeed = ({ username }) => {
   const [posts, setPosts] = useState([]);
   const { user } = useContext(AuthContext);
 
@@ -13,9 +13,9 @@ const Feed = ({ username }) => {
     fetchPosts();
   }, [username, user._id]);
   const fetchPosts = async () => {
-    const res = username
-      ? await axios.get("/posts/profile/" + username)
-      : await axios.get("posts/timeline/" + user._id);
+    const res = await axios.get("deptPosts", {
+      params: { department: user.department },
+    });
     setPosts(
       res.data.sort((p1, p2) => {
         return new Date(p2.createdAt) - new Date(p1.createdAt);
@@ -25,18 +25,16 @@ const Feed = ({ username }) => {
   return (
     <div className="feed">
       <div className="feedWrapper">
-        {(!username || username === user.username) && (
-          <Share fetchPosts={fetchPosts} />
-        )}
+        {user.role === "Faculty" && <DeptShare fetchPosts={fetchPosts} />}
         {posts.length === 0 && (
           <h3 className="no-posts">No Posts to display...</h3>
         )}
         {posts.map((post) => (
-          <Post key={post._id} post={post} fetchPosts={fetchPosts} />
+          <DeptPost key={post._id} post={post} fetchPosts={fetchPosts} />
         ))}
       </div>
     </div>
   );
 };
 
-export default Feed;
+export default DeptFeed;

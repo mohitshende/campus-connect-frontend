@@ -12,8 +12,8 @@ const Login = () => {
   const email = useRef();
   const password = useRef();
 
-  const { user, isFetching, error, dispatch } = useContext(AuthContext);
-
+  const { isFetching, error, dispatch } = useContext(AuthContext);
+  //FIXME: USE ERR FOR TOAST
   const handleClick = (e) => {
     e.preventDefault();
     loginCall(
